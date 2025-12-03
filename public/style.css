@@ -1,0 +1,165 @@
+body {
+  font-family: Inter, sans-serif;
+  background: linear-gradient(180deg, #031022, #042536);
+  color: #e7f6fb;
+  margin: 0;
+  padding: 0;
+}
+
+header, footer {
+  background: rgba(3, 16, 34, 0.5);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(6px);
+}
+
+nav a {
+  color: #e7f6fb;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+.btn {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  padding: 16px;
+  border-radius: 12px;
+  margin: 10px 0;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* ===== Modal da Câmera ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 30, 60, 0.7); /* Azul escuro translúcido */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+  background: linear-gradient(180deg, rgba(0,120,180,0.95), rgba(0,60,100,0.95));
+  border-radius: 18px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  max-width: 720px;
+  width: 92%;
+}
+
+.modal-title {
+  color: #ffffff;
+  margin: 6px 0 12px 0;
+  font-size: 18px;
+}
+
+.video-wrap {
+  width: 100%;
+  display:flex;
+  justify-content:center;
+}
+
+video#video {
+  border-radius: 12px;
+  width: 640px;
+  max-width: 100%;
+  height: auto;
+  background: #000;
+}
+
+.controls {
+  display:flex;
+  gap: 14px;
+  margin-top: 12px;
+  align-items:center;
+  justify-content:center;
+}
+
+/* Botão circular foto */
+.botao-foto {
+  background-color: #00c0e8;
+  border: none;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  font-size: 26px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: #00324a;
+}
+
+/* Botão fechar (canto) */
+.botao-fechar {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255,255,255,0.06);
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* status text */
+.modal-status {
+  color: #e0f7ff;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+df-messenger {
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+df-messenger.aberto {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}

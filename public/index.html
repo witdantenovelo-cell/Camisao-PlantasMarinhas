@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Fundo do Mar — Plantas Marinhas e Curiosidades</title>
+  <meta name="description" content="Descubra curiosidades, tipos e importância das plantas marinhas e algas que sustentam a vida nos oceanos.">
+  <link rel="stylesheet" href="style.css">
+    <!-- Bibliotecas -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.8.0/dist/tf.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+
+  <!-- Script principal -->
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+<header>
+  <h1>🌊 Fundo do Mar</h1>
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#plantas">Plantas</a>
+    <a href="#curiosidades">Curiosidades</a>
+  </nav>
+  <div>
+    <button class="btn" aria-disabled="true" id="abrirIA">🤖 IA de reconhecimento</button>
+    <button class="btn" aria-disabled="true" id="btnAbrirChatbot">💬 Chat-bot</button>
+  </div>
+</header>
+
+<main>
+<section id="sobre">
+  <h2>Sobre o Mundo das Plantas Marinhas</h2>
+  <p>As plantas marinhas são organismos fundamentais para a vida nos oceanos e no planeta. Elas produzem grande parte do oxigênio que respiramos e servem como alimento e abrigo para inúmeras espécies. Entre as principais estão as algas marinhas, que podem ser microscópicas ou gigantes, e as pradarias submarinas, verdadeiros ecossistemas verdes.</p>
+</section>
+
+<section id="plantas">
+  <h2>Tipos de Plantas Marinhas</h2>
+
+  <div class="gallery">
+
+    <div class="card">
+      <img src="/imagens/20251112_0809_Kelp Gigante Realista_simple_compose_01k9vw0dm4ekstwvvhxfb0afb4.png" alt="Kelp">
+      <h3>Kelp Gigante</h3>
+      <p>Essas algas enormes formam florestas subaquáticas, abrigando peixes e invertebrados e absorvendo carbono da atmosfera.</p>
+    </div>
+
+    <div class="card">
+      <img src="/imagens/20251112_0812_Algas Verdes Realistas_simple_compose_01k9vw7b1wfay9ppczznqfwq31 (1).png" alt="Alga Verde">
+      <h3>Algas Verdes</h3>
+      <p>Encontradas em recifes e costas rasas, elas possuem alta eficiência fotossintética e são a base da cadeia alimentar marinha.</p>
+    </div>
+
+    <div class="card">
+      <img src="/imagens/20251112_0816_Pradarias Marinhas Realistas_simple_compose_01k9vwb327ejzan3rvh9xf947g.png" alt="Pradaria Marinha">
+      <h3>Pradarias Marinhas</h3>
+      <p>Plantas com flores adaptadas à vida submersa, essenciais para a estabilidade dos ecossistemas costeiros e filtragem da água.</p>
+    </div>
+
+    <div class="card">
+      <img src="/imagens/20251112_0818_Algas Vermelhas Realistas_simple_compose_01k9vwgeppe0vv1mjvbkm0kbpg.png" alt="Alga Vermelha">
+      <h3>Algas Vermelhas</h3>
+      <p>Ricas em compostos usados em cosméticos e alimentação, são essenciais para a formação de recifes de corais.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="curiosidades">
+  <h2>Curiosidades sobre as Algas Marinhas</h2>
+  <ul>
+    <li>As algas produzem cerca de 50% do oxigênio da Terra.</li>
+    <li>Algumas espécies de algas bioluminescentes brilham à noite, iluminando ondas e praias.</li>
+    <li>O kelp gigante pode crescer até 60 cm por dia, sendo uma das plantas de crescimento mais rápido do mundo.</li>
+    <li>Algas vermelhas são usadas na fabricação de sorvetes, cremes e produtos farmacêuticos.</li>
+    <li>Existem algas que vivem em simbiose com animais marinhos, como corais e moluscos.</li>
+  </ul>
+</section>
+
+<section id="alga-semana">
+  <h2>Alga da Semana</h2>
+  <p>Toda semana, um novo destaque de alga marinha aparece aqui! Descubra sua importância ecológica e curiosidades.</p>
+
+  <div class="card">
+    <img src="/imagens/20251112_0822_Alga Solar Realista_simple_compose_01k9vwpj9fedbrtsvjf7aaz1bf.png" alt="Alga da Semana">
+    <h3>Alga Marinha Estrela</h3>
+    <p>Esta espécie de alga ajuda na purificação da água e fornece nutrientes vitais para pequenos crustáceos. Ela muda conforme a semana!</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p>© Fundo do Mar — Curiosidades sobre Plantas Marinhas | Feito com 🌊 e código</p>
+</footer>
+
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="WELCOME"
+  chat-title="Robert"
+  agent-id="d396cafd-0d12-4f5a-bed2-ddbb355260d5"
+  language-code="pt-br"
+></df-messenger>
+
+  <!-- Modal da câmera (inicialmente escondido) -->
+  <div id="cameraModal" class="modal" aria-hidden="true" style="display:none;">
+    <div class="modal-content">
+      <button id="fecharModal" class="botao-fechar" title="Fechar">❌</button>
+      <h2 class="modal-title">Reconhecimento Facial</h2>
+      <div class="video-wrap">
+        <video id="video" autoplay muted playsinline></video>
+      </div>
+      <div class="controls">
+        <button id="tirarFoto" class="botao-foto" title="Tirar foto">📸</button>
+      </div>
+      <p id="modalStatus" class="modal-status">Aguardando...</p>
+      <canvas id="fotoCanvas" style="display:none;"></canvas>
+    </div>
+  </div>
+
+</body>
+</html>
